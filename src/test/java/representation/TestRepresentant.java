@@ -52,7 +52,7 @@ public class TestRepresentant {
 		float POURCENTAGE= 0.1f; // 10% de pourcentage sur CA
 		
 		// On n'enregistre aucun CA
-		//r.enregistrerCA(0, 10000f);
+		r.enregistrerCA(0, 10000f);
 		
 		// On calcule son salaire pour le mois 0 avec 10% de part sur CA
 		float salaire = r.salaireMensuel(0, POURCENTAGE);
