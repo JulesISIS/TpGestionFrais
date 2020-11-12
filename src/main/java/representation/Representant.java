@@ -9,7 +9,7 @@ public class Representant {
     private final String prenom;
     private String adresse;
     private float salaireFixe;
-    private ZoneGeographique secteur;
+    protected ZoneGeographique secteur;
     private float caMensuel;
     TreeMap<Integer, Float> mapCA = new TreeMap<>();
 
@@ -24,6 +24,10 @@ public class Representant {
         return numero;
     }
 
+    public float getCA(int mois) {
+        return mapCA.get(mois);
+    }
+    
     public String getNom() {
         return nom;
     }
@@ -84,7 +88,7 @@ public class Representant {
      * l'indemnité repas, et du pourcentage sur CA
      */
     public float salaireMensuel(int mois, float pourcentage) {
-        return salaireFixe + secteur.getIndemniteRepas() + pourcentage * mapCA.get(mois);
+        return salaireFixe + secteur.getIndemniteRepas() + pourcentage * mapCA.getOrDefault(mois,0f);
     }
 
     @Override

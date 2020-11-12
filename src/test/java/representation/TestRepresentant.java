@@ -52,10 +52,9 @@ public class TestRepresentant {
         float POURCENTAGE = 0.1f; // 10% de pourcentage sur CA
 
         // On n'enregistre aucun CA
-        r.enregistrerCA(0, 10000f);
-
+        //r.enregistrerCA(0, 10000f);
         // On calcule son salaire pour le mois 0 avec 10% de part sur CA
-        float salaire = r.salaireMensuel(0, POURCENTAGE) - r.getSalaireFixe();
+        float salaire = r.salaireMensuel(0, POURCENTAGE);
 
         // A quel résultat on s'attend ?
         // Le CA du mois doit avoir été initialisé à 0
@@ -82,4 +81,29 @@ public class TestRepresentant {
 
     }
 
+    @Test
+    public void testSetSecteur() {
+        ZoneGeographique TST = new ZoneGeographique(10, "TST");
+        r.setSecteur(TST);
+
+        assertEquals(r.secteur.getNom(), "TST", "Le secteur n'a pas été modifié.");
+    }
+
+    @Test
+    public void testSetCA() {
+        r.enregistrerCA(0,1000f);
+        r.enregistrerCA(0,2000f);
+
+        assertEquals(r.getCA(0),2000f, "La valeur du CA n'a pas été modifiée.");
+    }
+
+    @Test
+    public void testGetNom() {
+        assertEquals(r.getNom(), "Bastide", "Le nom n'est pas correct.");
+    }
+
+    @Test
+    public void testToString() {
+        //assertEquals(r.getNom(), "Bastide", "Le nom n'est pas correct.");
+    }
 }
