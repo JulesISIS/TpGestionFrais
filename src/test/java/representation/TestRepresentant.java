@@ -104,6 +104,6 @@ public class TestRepresentant {
 
     @Test
     public void testToString() {
-        //assertEquals(r.getNom(), "Bastide", "Le nom n'est pas correct.");
+        assertEquals(r.toString(),"Representant{numero=36, nom=Bastide, prenom=Rémi}", "L'affichage n'est pas correct.");
     }
 }
